@@ -12,8 +12,9 @@ import java.util.List;
 public class HelloController {
 
 
+    // http://localhost:2000/data?id=1-2-1&&name=22/22/2222
     @RequestMapping(value = "/data", method = RequestMethod.GET)
-    public List<Product> getData(@RequestParam("id") String id) {
+    public List<Product> getData(@RequestParam("id") String id,@RequestParam("name") String name) {
 
         Product p1 = new Product("1", "p1", 2.00);
 
@@ -22,7 +23,7 @@ public class HelloController {
         List<Product> result = new ArrayList<>();
         result.add(p1);
         result.add(p2);
-        result.add (new Product(id, "p" + id, 2.00));
+        result.add (new Product(id, name, 2.00));
         return result;
     }
 
